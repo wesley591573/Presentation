@@ -19,7 +19,7 @@ struct Token {
   
 }; // token
 
-// ±Mªùµ¹Tree¨Ï¥Îªº 
+// å°ˆé–€çµ¦Treeä½¿ç”¨çš„ 
 struct Node {
   string str ;
   string type ;
@@ -49,61 +49,61 @@ bool IsNIL( string str ) ;
 
 void String( char &nowCh, char &nextCh, string &str, bool &doubleQuote ) ;
 
-// ±Mªù³B²z¬A©·ªº±¡ªp 
-// ¥¿±`±¡ªpmAllTokenªº²Ä¤@­ÓToken­n¬O"(" 
+// å°ˆé–€è™•ç†æ‹¬å¼§çš„æƒ…æ³ 
+// æ­£å¸¸æƒ…æ³mAllTokençš„ç¬¬ä¸€å€‹Tokenè¦æ˜¯"(" 
 // nowCh == '(' 
 // str == ""
 void Paren( bool &paren ) ;
 
-// ©Ò¦³«Ø¾ğªº¹Lµ{¡A¥]§t Translate ©M Build 
+// æ‰€æœ‰å»ºæ¨¹çš„éç¨‹ï¼ŒåŒ…å« Translate å’Œ Build 
 void MakeTree() ;
 
-// §â¾ğªºµ²ªG show ¥X¨Ó¡A¬İ¦³¨S¦³¿ù»~ 
+// æŠŠæ¨¹çš„çµæœ show å‡ºä¾†ï¼Œçœ‹æœ‰æ²’æœ‰éŒ¯èª¤ 
 void TreeShow( NodePtr head ) ;
 
-// Åı¨C­Ó()¸Ì­±³£¦³dot 
+// è®“æ¯å€‹()è£¡é¢éƒ½æœ‰dot 
 int TranslateParen_Dot( int locate ) ;
 
 int TranslateParen_Dot_Paren( int locate ) ;
 
-// §Q¥Î Translate «áªº¤º®e¡A«Øºc¥X§¹¾ãªº¾ğ 
+// åˆ©ç”¨ Translate å¾Œçš„å…§å®¹ï¼Œå»ºæ§‹å‡ºå®Œæ•´çš„æ¨¹ 
 void BuildNodeTree( NodePtr &head, int &locate ) ;
 
 void ParenGrammar( bool &paren ) ; 
 
-// ¬°¤F ShowAllToken() ¨Ó output space 
+// ç‚ºäº† ShowAllToken() ä¾† output space 
 void PrintSpace( int count ) ;
 
 // public
 
-// Åª¤U¤@­Ó¦r¦ê¨Ã¦^¦s¦ÜtokenList¤¤ 
-// ¨C¤@¦¸¥u³B²z¤@­Ótoken 
+// è®€ä¸‹ä¸€å€‹å­—ä¸²ä¸¦å›å­˜è‡³tokenListä¸­ 
+// æ¯ä¸€æ¬¡åªè™•ç†ä¸€å€‹token 
 void ReadString() ;
 
 void TestShow() ;
 
-// §âToken show¥X¨Óªº¦P®É
+// æŠŠToken showå‡ºä¾†çš„åŒæ™‚
 void Show() ;
 
 bool IsEnd() ;
 
-// ¦r¦ê->token¦ê 
+// å­—ä¸²->tokenä¸² 
 class Scanner {
-  // Àx¦s©Ò¦³ªºToken 
+  // å„²å­˜æ‰€æœ‰çš„Token 
   TokenList mAllToken ;
   // Tree
   NodePtr mHeadClass ;
   
-  bool mError ; // END OF FILEªºERROR 
-  bool mError_UT_LP ; // Unexpected TokenªºError 
-  bool mError_UT_RP ; // Unexpected Token Right Parenªº Error 
-  bool mError_NCQ ; // No Closing QuoteªºError 
-  bool mTokenInSameLine ; // ·í¤@­ÓtokenÅª¶i¨Ó«á­±¨S¦³ªF¦è¦ı¦³ªÅ¥Õ®É¡A¯u¥¿ªº²Ä¤@¦æ¬O±q¤U¤@­Ó¶}©l 
+  bool mError ; // END OF FILEçš„ERROR 
+  bool mError_UT_LP ; // Unexpected Tokençš„Error 
+  bool mError_UT_RP ; // Unexpected Token Right Parençš„ Error 
+  bool mError_NCQ ; // No Closing Quoteçš„Error 
+  bool mTokenInSameLine ; // ç•¶ä¸€å€‹tokenè®€é€²ä¾†å¾Œé¢æ²’æœ‰æ±è¥¿ä½†æœ‰ç©ºç™½æ™‚ï¼ŒçœŸæ­£çš„ç¬¬ä¸€è¡Œæ˜¯å¾ä¸‹ä¸€å€‹é–‹å§‹ 
   char mError_UT_char ;
-  int mLine ; // ªí¥Ü²{¦b²Ä´X¦æ 
-  int mColumn ; // ªí¥Ü²{¦b¬O¸Ó¦æªº²Ä´X­Ó¦r¤¸ 
+  int mLine ; // è¡¨ç¤ºç¾åœ¨ç¬¬å¹¾è¡Œ 
+  int mColumn ; // è¡¨ç¤ºç¾åœ¨æ˜¯è©²è¡Œçš„ç¬¬å¹¾å€‹å­—å…ƒ 
   
-  // ¸õ¹L©Ò¦³ªºwhite space 
+  // è·³éæ‰€æœ‰çš„white space 
   void SkipAllWhite() {
     char nowCh ;
     char nextCh ;
@@ -119,7 +119,7 @@ class Scanner {
     
   } // SkipAllWhite()
   
-  // §PÂ_ch¬O§_¬°separator  
+  // åˆ¤æ–·chæ˜¯å¦ç‚ºseparator  
   bool IsSeparator( char ch ) {
     if ( ch == ' ' || ch == '(' || ch == ')' || ch == '\'' || ch == '\"' || ch == ';' ) {
       return true ;
@@ -130,7 +130,7 @@ class Scanner {
     
   } // IsSeparator()
   
-  // §PÂ_strªº«¬§O¬°¦ó 
+  // åˆ¤æ–·strçš„å‹åˆ¥ç‚ºä½• 
   string TypeDecide( string str ) {
     string type = "NULL" ;
     
@@ -184,7 +184,7 @@ class Scanner {
   } // TypeDecide()
   
   bool StrIsInt( string str ) {
-    int check = 0 ; // ¶}©lÀË¬dstr¬O§_¬°integerªº¶}ÀY 
+    int check = 0 ; // é–‹å§‹æª¢æŸ¥stræ˜¯å¦ç‚ºintegerçš„é–‹é ­ 
     
     if ( str[0] == '+' || str[0] == '-' ) {
       check = 1 ;
@@ -211,8 +211,8 @@ class Scanner {
   } // StrIsInt()
   
   bool StrIsFloat( string str ) {
-    int check = 0 ; // ¶}©lÀË¬dstr¬O§_¬°integerªº¶}ÀY 
-    bool dot = false ; // ÀË¬ddot¬O§_¦³¥X²{¹L 
+    int check = 0 ; // é–‹å§‹æª¢æŸ¥stræ˜¯å¦ç‚ºintegerçš„é–‹é ­ 
+    bool dot = false ; // æª¢æŸ¥dotæ˜¯å¦æœ‰å‡ºç¾é 
     
     if ( str[0] == '+' || str[0] == '-' ) {
       check = 1 ;
@@ -286,7 +286,7 @@ class Scanner {
   } // IsNIL()
   
   void String( char &nowCh, char &nextCh, string &str, bool &doubleQuote ) {
-    bool escape = false ; // ªí¥Ü¦³escapeªºµo¥Í 
+    bool escape = false ; // è¡¨ç¤ºæœ‰escapeçš„ç™¼ç”Ÿ 
     Token nToken ;
     
     doubleQuote = true ;
@@ -340,7 +340,7 @@ class Scanner {
         
       } // if()
       
-      // escapeªºª¬ªp 
+      // escapeçš„ç‹€æ³ 
       else if ( nowCh == '\\' ) {
         if ( nextCh == '\\' ) {
           escape = true ; 
@@ -380,16 +380,16 @@ class Scanner {
     
   } // String()
   
-  // ±Mªù³B²z¬A©·ªº±¡ªp 
-  // ¥¿±`±¡ªpmAllTokenªº²Ä¤@­ÓToken­n¬O"(" 
+  // å°ˆé–€è™•ç†æ‹¬å¼§çš„æƒ…æ³ 
+  // æ­£å¸¸æƒ…æ³mAllTokençš„ç¬¬ä¸€å€‹Tokenè¦æ˜¯"(" 
   // nowCh == '(' 
   // str == ""
   void Paren( bool &paren ) {
     int pair = 0 ;
     Token nToken ;
-    bool quote = false ; // ¬O§_¦³bool 
-    bool makeQuoteTree = false ; // µ¹quote°µ¨Ï¥Î¡AÅı¥Lª¾¹D«á­±¬O§_¦³ expression
-    bool hadParen = false ; // µ¹ MakeTree() ¬İ±o¡A¦]¬°¦³ '(' ©Î ')' ¤~¥i¥H¶}©l«Ø¾ğ 
+    bool quote = false ; // æ˜¯å¦æœ‰bool 
+    bool makeQuoteTree = false ; // çµ¦quoteåšä½¿ç”¨ï¼Œè®“ä»–çŸ¥é“å¾Œé¢æ˜¯å¦æœ‰ expression
+    bool hadParen = false ; // çµ¦ MakeTree() çœ‹å¾—ï¼Œå› ç‚ºæœ‰ '(' æˆ– ')' æ‰å¯ä»¥é–‹å§‹å»ºæ¨¹ 
     
     for ( int i = 0 ; i < mAllToken.size() ; i++ ) {
       if ( mAllToken.at( i ).str == "(" ) {
@@ -429,7 +429,7 @@ class Scanner {
     // cout << "After : " << mAllToken.size() << endl ;
     
     if ( paren && pair >= 0 ) {
-      // ªí¥Ü() 
+      // è¡¨ç¤º() 
       if ( mAllToken.size() >= 2 && mAllToken.at( mAllToken.size() - 2 ).str == "(" 
            && mAllToken.at( mAllToken.size() - 1 ).str == ")" ) {
         mAllToken.pop_back() ;
@@ -480,7 +480,7 @@ class Scanner {
       
       mError_UT_char = ')' ;
       
-      // «á­±§¹¥şskip 
+      // å¾Œé¢å®Œå…¨skip 
       while ( cin.peek() != '\n' && cin.peek() != EOF ) {
         cin.get() ;
         
@@ -502,7 +502,7 @@ class Scanner {
   void MakeTree() {
     int locate = 0 ;
     
-    // À³¹ï () ªºª¬ªp 
+    // æ‡‰å° () çš„ç‹€æ³ 
     if ( mAllToken.at( 0 ).type == "NIL" ) {
       
       
@@ -542,7 +542,7 @@ class Scanner {
         
   } // TreeShow()
   
-  // Åı¨C­Ó()¸Ì­±³£¦³dot 
+  // è®“æ¯å€‹()è£¡é¢éƒ½æœ‰dot 
   int TranslateParen_Dot( int locate ) {
     int nowLocate = locate ;
     bool dot = false ;
@@ -587,7 +587,7 @@ class Scanner {
   } // TranslateParen_Dot()
   
   int TranslateParen_Dot_Paren( int locate ) {
-    int rightParenCount = 0 ; // ­pºâ¦h»s³y¥X¨Óªºright-paren 
+    int rightParenCount = 0 ; // è¨ˆç®—å¤šè£½é€ å‡ºä¾†çš„right-paren 
     int pair = 0 ;
     Token nToken ;
     
@@ -604,7 +604,7 @@ class Scanner {
         
       } // if()
       
-      // ªí¥Üparenªºend 
+      // è¡¨ç¤ºparençš„end 
       else if ( mAllToken.at( i + 1 ).type == "DOT" ) {
         i = i + 1 ;
         
@@ -707,13 +707,13 @@ class Scanner {
     
   } // BuildNodeTree()
   
-  // ¬İ¨ì¤U¤@­Ó¬O '(' ¡A´N©I¥s¦Û¤v¡C
-  // ¦^¶Çªº¬O¸Óexpressionªº³Ì«á¤@­Ótokenªº«e¤@­Ó
+  // çœ‹åˆ°ä¸‹ä¸€å€‹æ˜¯ '(' ï¼Œå°±å‘¼å«è‡ªå·±ã€‚
+  // å›å‚³çš„æ˜¯è©²expressionçš„æœ€å¾Œä¸€å€‹tokençš„å‰ä¸€å€‹
   int ParenGrammar( int locate, bool &paren ) {
     string nowType = "" ;
     string nextType = "" ;
-    bool dot = false ; // dot¬O§_¤w¸g¥X²{¹L 
-    bool isExpression = false ; // ªí¥Ü¬O§_¬°»¼°j¦^¶Çªº 
+    bool dot = false ; // dotæ˜¯å¦å·²ç¶“å‡ºç¾é 
+    bool isExpression = false ; // è¡¨ç¤ºæ˜¯å¦ç‚ºéè¿´å›å‚³çš„ 
     
     for ( int i = locate ; i < mAllToken.size() ; i++ ) {
       
@@ -859,7 +859,7 @@ class Scanner {
           
         } // else if()
         
-        // ¨ä¥LtypeªºªF¦è ¡A ¨Ã¥]§t¥¦­Ì·|²£¥Íªº error 
+        // å…¶ä»–typeçš„æ±è¥¿ ï¼Œ ä¸¦åŒ…å«å®ƒå€‘æœƒç”¢ç”Ÿçš„ error 
         else {
           if ( nextType != "RIGHT-PAREN" && dot ) {
             // UT ERROR
@@ -896,7 +896,7 @@ class Scanner {
           
           i = ParenGrammar( i + 1, paren ) ;
           
-          // ªí¥Ü­è±q Expression ¥X¨Ó 
+          // è¡¨ç¤ºå‰›å¾ Expression å‡ºä¾† 
           isExpression = true ;
           
           i-- ;
@@ -905,7 +905,7 @@ class Scanner {
       
       } // if()
       
-      // ¨¾¤î¦³ .(expression). ªºµo¥Í 
+      // é˜²æ­¢æœ‰ .(expression). çš„ç™¼ç”Ÿ 
       else if ( i == mAllToken.size() - 1 ) {
         if ( mAllToken.at( i ).type == "DOT" && dot ) {
           
@@ -944,7 +944,7 @@ class Scanner {
     
   } // ParenGrammar()
   
-  // ¬°¤F ShowAllToken() ¨Ó output space 
+  // ç‚ºäº† ShowAllToken() ä¾† output space 
   void PrintSpace( int count ) {
     for ( int i = 0 ; i < count ; i++ ) {
       cout << " " ;
@@ -953,15 +953,15 @@ class Scanner {
     
   } // PrintSpace()
   
-  // inputªºlocateªí¥Ü§A²{¦bªº¦ì¸m
-  // ­nreturn§A³Ì«á¦s¦bªº¦ì¸m 
-  // ­ì¥»¬O¬°¤F°µ paren ±MÄİªº show¡A¦ı«á¨Óµo²{¤£¬Oparen¤]¥i¥Hshow¥X¨Ó 
-  // space ¦b°O¿ı¥Ø«e­nªÅ´X®æ
-  // sameLine¦b°O¿ı«e¤@­Ó output token ¬O§_¬° "("¡A¨Ó¨M©w­n¤£­n output sapce 
+  // inputçš„locateè¡¨ç¤ºä½ ç¾åœ¨çš„ä½ç½®
+  // è¦returnä½ æœ€å¾Œå­˜åœ¨çš„ä½ç½® 
+  // åŸæœ¬æ˜¯ç‚ºäº†åš paren å°ˆå±¬çš„ showï¼Œä½†å¾Œä¾†ç™¼ç¾ä¸æ˜¯parenä¹Ÿå¯ä»¥showå‡ºä¾† 
+  // space åœ¨è¨˜éŒ„ç›®å‰è¦ç©ºå¹¾æ ¼
+  // sameLineåœ¨è¨˜éŒ„å‰ä¸€å€‹ output token æ˜¯å¦ç‚º "("ï¼Œä¾†æ±ºå®šè¦ä¸è¦ output sapce 
   int ShowAllToken( int locate, int space, bool &sameLine ) {
-    int skipRightParen = 0 ; // ¹J¨ì ".(" ­n°O¿ı¡A³o¥Nªí­n¤Öoutput¤@­Ó ')' 
+    int skipRightParen = 0 ; // é‡åˆ° ".(" è¦è¨˜éŒ„ï¼Œé€™ä»£è¡¨è¦å°‘outputä¸€å€‹ ')' 
     int rightCount = 0 ;
-    int input ; // µ¥©ó ( space + rightCount ) * 2
+    int input ; // ç­‰æ–¼ ( space + rightCount ) * 2
     
     // cout << "In Pretty" << endl ;
     
@@ -1058,7 +1058,7 @@ class Scanner {
     
   } // ShowAllToken()
   
-  // ³B²z¤@¨Ç³Â·Ğªºtoken output¡A e.g. float, nil... 
+  // è™•ç†ä¸€äº›éº»ç…©çš„token outputï¼Œ e.g. float, nil... 
   void PrintTokenCorrectly( Token token ) {
     float float_out ;
     int int_out ;
@@ -1109,13 +1109,13 @@ class Scanner {
     
   } // PrintTokenCorrectly()
   
-  // ¨C¦¸¥u¯à³B²z³æ¤@ªºQuote¡A»¼°jªºQuote¥i¥H¡A¦ı½Æ¼ÆªºQuote¤£¦æ 
-  // ¹J¨ì Quote µ¥©ó¬O­n¥¦¥kÃäªºexpression¤É¶¥ 
-  // §Ú¨C¦¸¦^¶Çªº³£¬O¸Óexpressionªº³Ì«á¤@­Ótoken 
+  // æ¯æ¬¡åªèƒ½è™•ç†å–®ä¸€çš„Quoteï¼Œéè¿´çš„Quoteå¯ä»¥ï¼Œä½†è¤‡æ•¸çš„Quoteä¸è¡Œ 
+  // é‡åˆ° Quote ç­‰æ–¼æ˜¯è¦å®ƒå³é‚Šçš„expressionå‡éš 
+  // æˆ‘æ¯æ¬¡å›å‚³çš„éƒ½æ˜¯è©²expressionçš„æœ€å¾Œä¸€å€‹token 
   int SingleQuoteTree( int locate ) {
     Token nToken ;
     int pair = 0 ;
-    // bool hadParen = false ; // ªí¥Ü³o­Óexpression¸Ì­±¦³paren¡C(expression) ºâ¬O expression 
+    // bool hadParen = false ; // è¡¨ç¤ºé€™å€‹expressionè£¡é¢æœ‰parenã€‚(expression) ç®—æ˜¯ expression 
     
     // cout << "TEST" << endl ;
     // cout << mAllToken.size() << endl ;
@@ -1128,7 +1128,7 @@ class Scanner {
           if ( mAllToken.at( j ).type == "QUOTE" ) {
             j = SingleQuoteTree( j ) ;
             
-            // ¨º­Óexpression§Ú­Ì´N¤£Åª¥¦¡A©Ò¥H­n+1 
+            // é‚£å€‹expressionæˆ‘å€‘å°±ä¸è®€å®ƒï¼Œæ‰€ä»¥è¦+1 
             // j++ ;
             pair++ ;
             
@@ -1182,7 +1182,7 @@ class Scanner {
     
   } // SingleQuoteTree()
   
-  // §Q¥ÎSingleQuoteTree¨Ó°µ³B²z¾ã­Óexpression 
+  // åˆ©ç”¨SingleQuoteTreeä¾†åšè™•ç†æ•´å€‹expression 
   void QuoteTree() {
     int locate = 0 ;
     
@@ -1193,7 +1193,7 @@ class Scanner {
     
   } // QuoteTree()
   
-  // §PÂ_²{¦bmAllToken¤¤ªº¬O¤£¬O(exit) 
+  // åˆ¤æ–·ç¾åœ¨mAllTokenä¸­çš„æ˜¯ä¸æ˜¯(exit) 
   bool IsExist() {
     string end ;
     
@@ -1213,27 +1213,27 @@ class Scanner {
   
 public:
   
-  // Åª¤U¤@­Ó¦r¦ê¨Ã¦^¦s¦ÜtokenList¤¤ 
-  // ¨C¤@¦¸¥u³B²z¤@­Ótoken 
+  // è®€ä¸‹ä¸€å€‹å­—ä¸²ä¸¦å›å­˜è‡³tokenListä¸­ 
+  // æ¯ä¸€æ¬¡åªè™•ç†ä¸€å€‹token 
   void ReadString() {
     char nowCh = '\0' ;
     char nextCh ;
     string str = "" ;
     Token nToken ;
-    bool doubleQuote = false ; // ªí¥Ü¥¿¦b³B²zstring 
-    bool paren = false ; // ªí¥Ü¥¿¦b³B²z¬A©· 
-    bool oneToken = false ; // mAllToken¤¤¡A¬O§_¦³Token 
-    bool comment = false ; // µù¸ÑÁöµM¤£¥ÎÅª¤J¡A¦ı¥Lºâ¤@¦æ 
+    bool doubleQuote = false ; // è¡¨ç¤ºæ­£åœ¨è™•ç†string 
+    bool paren = false ; // è¡¨ç¤ºæ­£åœ¨è™•ç†æ‹¬å¼§ 
+    bool oneToken = false ; // mAllTokenä¸­ï¼Œæ˜¯å¦æœ‰Token 
+    bool comment = false ; // è¨»è§£é›–ç„¶ä¸ç”¨è®€å…¥ï¼Œä½†ä»–ç®—ä¸€è¡Œ 
     
-    mLine = 1 ; // ªí¥Ü²{¦b²Ä´X¦æ 
-    mColumn = 0 ; // ªí¥Ü²{¦b¬O¸Ó¦æªº²Ä´X­Ó¦r¤¸ 
+    mLine = 1 ; // è¡¨ç¤ºç¾åœ¨ç¬¬å¹¾è¡Œ 
+    mColumn = 0 ; // è¡¨ç¤ºç¾åœ¨æ˜¯è©²è¡Œçš„ç¬¬å¹¾å€‹å­—å…ƒ 
     mError = false ; // End Of File Error
     mError_UT_RP = false ; // Unexpected Token Error Right Paren
     mError_UT_LP = false ; // Unexpected Token Error Left Paren
     mError_NCQ = false ; // No Closing Quote Error
     mError_UT_char = '\0' ;
     mAllToken.clear() ;
-    mHeadClass = NULL ; // ¨C¦¸­nÅª·sªº token ´N§â head¾ğ ªì©l¤Æ 
+    mHeadClass = NULL ; // æ¯æ¬¡è¦è®€æ–°çš„ token å°±æŠŠ headæ¨¹ åˆå§‹åŒ– 
     
     while ( ( !oneToken || paren ) && !mError && !mError_NCQ && !mError_UT_RP && !mError_UT_LP ) {
       
@@ -1271,7 +1271,7 @@ public:
           
         } // if()
         
-        // ¤U¤@¦æ¤~¶}©lºâ
+        // ä¸‹ä¸€è¡Œæ‰é–‹å§‹ç®—
         else if ( mTokenInSameLine ) {
           ChangeTokenInSameLine( false ) ;
           cin.get() ;
@@ -1288,7 +1288,7 @@ public:
         } // else
         
       } // else if()
-      // µù¸Ñªºª¬ªp 
+      // è¨»è§£çš„ç‹€æ³ 
       else if ( nextCh == ';' ) {
         comment = true ;
         
@@ -1305,7 +1305,7 @@ public:
           
         } // if()
         
-        // ¸õ¹L«á­±©Ò¦³ªF¦è 
+        // è·³éå¾Œé¢æ‰€æœ‰æ±è¥¿ 
         while ( nextCh != '\n' && nextCh != EOF ) {
           nowCh = cin.get() ;
           
@@ -1320,7 +1320,7 @@ public:
         
       } // else if()
       
-      // STRINGªºª¬ªp 
+      // STRINGçš„ç‹€æ³ 
       else if ( nextCh == '\"' && str == "" ) {
         String( nowCh, nextCh, str, doubleQuote ) ;
         
@@ -1328,7 +1328,7 @@ public:
         
       } // else if()
       
-      // ¤£¬OSeparator 
+      // ä¸æ˜¯Separator 
       else if ( !IsSeparator( nextCh ) ) {
         nowCh = cin.get() ;
         
@@ -1339,7 +1339,7 @@ public:
       } // if()
       
       else if ( IsSeparator( nextCh ) ) {
-        // str¦³ªF¦è¡A¨Ã¹J¨ìseperator 
+        // stræœ‰æ±è¥¿ï¼Œä¸¦é‡åˆ°seperator 
         if ( str != "" ) {
           nToken.str = str ;
             
@@ -1353,7 +1353,7 @@ public:
           
         } // if()
         
-        // str¨S¦³ªF¦è¡A¨Ã¹J¨ìseperator 
+        // stræ²’æœ‰æ±è¥¿ï¼Œä¸¦é‡åˆ°seperator 
         else if ( str == "" ) {
           nowCh = cin.get() ;
           
@@ -1410,7 +1410,7 @@ public:
       if ( oneToken && !mError && !mError_NCQ && !mError_UT_RP && !mError_UT_LP ) {
         ChangeTokenInSameLine( true ) ;
         
-        // DOT¤£¯à³æ¿W¥X²{¡A°£«D¬Oparen == true 
+        // DOTä¸èƒ½å–®ç¨å‡ºç¾ï¼Œé™¤éæ˜¯paren == true 
         if ( mAllToken.size() == 1 && mAllToken.at( 0 ).str == "." ) {
           mError_UT_LP = true ;
           
@@ -1418,7 +1418,7 @@ public:
           
           nextCh = cin.peek() ;
           
-          // «á­±§¹¥şskip 
+          // å¾Œé¢å®Œå…¨skip 
           while ( nextCh != '\n' && nextCh != EOF ) {
             nowCh = cin.get() ;
             
@@ -1440,11 +1440,11 @@ public:
       if ( paren ) {
         ChangeTokenInSameLine( false ) ;
         
-        // °µparenªº¤åªkÀË¬d 
+        // åšparençš„æ–‡æ³•æª¢æŸ¥ 
         Paren( paren ) ;
         
-        // ·íEnd of file error ¡A¥Bparen ¬° true ªí¥Ü¡A
-        // ªí¥Ü mAllToken ¤¤ªº ¬O¤£¦¨¥ßªº expression¡A³o®É­Ô´N¥ş³¡©ñ±ó 
+        // ç•¶End of file error ï¼Œä¸”paren ç‚º true è¡¨ç¤ºï¼Œ
+        // è¡¨ç¤º mAllToken ä¸­çš„ æ˜¯ä¸æˆç«‹çš„ expressionï¼Œé€™æ™‚å€™å°±å…¨éƒ¨æ”¾æ£„ 
         if ( mError ) {
           mAllToken.clear() ;
           
@@ -1459,7 +1459,7 @@ public:
       
     } // while()
     
-    // ¦pªG¥u¦³¤@­Ó¸`ÂI¡AÁÙ¬O­n«Ø¾ğ 
+    // å¦‚æœåªæœ‰ä¸€å€‹ç¯€é»ï¼Œé‚„æ˜¯è¦å»ºæ¨¹ 
     if ( mAllToken.size() == 1 && mHeadClass == NULL ) {
       NodePtr walk = NULL ;
       
@@ -1477,7 +1477,7 @@ public:
     
   } // ReadString()
   
-  // §âvectorªº¤º®eshow¥X¨Ó 
+  // æŠŠvectorçš„å…§å®¹showå‡ºä¾† 
   void TestShow() {
     float float_out = 0 ;
     
@@ -1500,13 +1500,13 @@ public:
     
   } // TestShow()
   
-  // §âToken show¥X¨Óªº¦P®É
+  // æŠŠToken showå‡ºä¾†çš„åŒæ™‚
   void Show() {
     float float_out = 0 ;
     int int_out = 0 ;
     int leftparen_count = 0 ;
     
-    // µ¹ShowAllToken°µ¨Ï¥Îªº 
+    // çµ¦ShowAllTokenåšä½¿ç”¨çš„ 
     bool sameLine = false ;
     
     if ( mError_UT_LP ) {
@@ -1535,7 +1535,7 @@ public:
     
     if ( mError_NCQ ) {
       
-      // +1ªº­ì¦]¬O¦]¬°§Ú¥u¦³½T¹êÅª¶i¨Ó¤~·|§ïÅÜcolumn¡A¦Ó´«¦æ§Ú¬O¥Îpeekªº 
+      // +1çš„åŸå› æ˜¯å› ç‚ºæˆ‘åªæœ‰ç¢ºå¯¦è®€é€²ä¾†æ‰æœƒæ”¹è®Šcolumnï¼Œè€Œæ›è¡Œæˆ‘æ˜¯ç”¨peekçš„ 
       cout << "ERROR (no closing quote) : END-OF-LINE encountered at Line " << mLine 
            << " Column " << mColumn + 1 << endl << endl ;
            
@@ -1564,8 +1564,8 @@ public:
     
   } // IsEnd()
   
-  // true¥Nªí¤U¤@¦æ¶}©lºâ
-  // false¥Nªí³o¤@¦æ¶}©lºâ 
+  // trueä»£è¡¨ä¸‹ä¸€è¡Œé–‹å§‹ç®—
+  // falseä»£è¡¨é€™ä¸€è¡Œé–‹å§‹ç®— 
   void ChangeTokenInSameLine( bool signal ) {
     mTokenInSameLine = signal ;
     
@@ -1580,7 +1580,7 @@ public:
     
   } // Initial()
   
-  // ¦bscanner¶¥¬q®É´N¦³error 
+  // åœ¨scanneréšæ®µæ™‚å°±æœ‰error 
   bool HasSyntaxError() {
     if ( !mError_NCQ && !mError_UT_LP && !mError_UT_RP ) {
       return false ;
@@ -1591,7 +1591,7 @@ public:
     
   } // HasSyntaxError()
   
-  // ¦³¦¨¥\«Ø¥X¾ğ¨Ó 
+  // æœ‰æˆåŠŸå»ºå‡ºæ¨¹ä¾† 
   bool HasTree() {
     if ( mHeadClass != NULL ) {
       return true ;
@@ -1609,8 +1609,8 @@ public:
     
   } // GetTreeHead()
   
-  // ¦pªG input ¶i¨Óªº¬O symbol ¥B¦³³Q define ¹L
-  // ¨º­n¦^¶Çµ¹ main ¡A¤§«á¦A¦^¶Çµ¹ Evaluate 
+  // å¦‚æœ input é€²ä¾†çš„æ˜¯ symbol ä¸”æœ‰è¢« define é
+  // é‚£è¦å›å‚³çµ¦ main ï¼Œä¹‹å¾Œå†å›å‚³çµ¦ Evaluate 
   bool IsSymbol( string &str ) {
     if ( mAllToken.size() == 1 && mAllToken.at( 0 ).type == "SYMBOL" ) {
       str = mAllToken.at( 0 ).str ;
@@ -1633,7 +1633,7 @@ public:
     
   } // CleanMAllToken()
   
-  // ¬İ¬O¤£¬OEND OF FILE ERROR 
+  // çœ‹æ˜¯ä¸æ˜¯END OF FILE ERROR 
   bool ReturnMError() {
     return mError ;
     
@@ -1642,17 +1642,17 @@ public:
 }; // Scanner
 
 class Evaluate {
-  NodePtr mNowHead ; // ¥Ø«eÅª¤JªºTree 
-  NodePtr mOutputHead ; // ­n¿é¥XªºTree 
-  NodePtr mErrorHead ; // Errorµo¥Í®É¡A©Ò­n¿é¥XªºTree 
-  vector <NodePtr> mHeadList ; // ¬ö¿ı define ¹Lªº Tree 
+  NodePtr mNowHead ; // ç›®å‰è®€å…¥çš„Tree 
+  NodePtr mOutputHead ; // è¦è¼¸å‡ºçš„Tree 
+  NodePtr mErrorHead ; // Errorç™¼ç”Ÿæ™‚ï¼Œæ‰€è¦è¼¸å‡ºçš„Tree 
+  vector <NodePtr> mHeadList ; // ç´€éŒ„ define éçš„ Tree 
   vector <string> mCommandList ; // command list
   
-  bool mError ; // ¦³¥ô¦óERRORªºµo¥Í 
+  bool mError ; // æœ‰ä»»ä½•ERRORçš„ç™¼ç”Ÿ 
   bool mNonFunctionError ; 
   
-  // ¬°¤F¤è«Koutput¡A§Ú·|§âÂÂªºÂ½Ä¶function·h¶i¨Ó
-  // ¦Ó³o­Ó¬O±µ¤U·Ç³Æ output ¥X¨Óªº¾ğ 
+  // ç‚ºäº†æ–¹ä¾¿outputï¼Œæˆ‘æœƒæŠŠèˆŠçš„ç¿»è­¯functionæ¬é€²ä¾†
+  // è€Œé€™å€‹æ˜¯æ¥ä¸‹æº–å‚™ output å‡ºä¾†çš„æ¨¹ 
   TokenList mAllToken ;  
   
   void TranslateTree_mAllToken( NodePtr head, bool end ) {
@@ -1733,10 +1733,10 @@ class Evaluate {
       
     } // if()
     
-    // ¶i¨Óªº¥i¯à¬O¤@­Ó³Q©w¸q¹Lªº symbol 
+    // é€²ä¾†çš„å¯èƒ½æ˜¯ä¸€å€‹è¢«å®šç¾©éçš„ symbol 
     else if ( head -> type == "SYMBOL" || head -> type == "SYMBOL-COMMAND" ) {
       
-      // ¸Ósymbol´N¬Ofunction 
+      // è©²symbolå°±æ˜¯function 
       for ( int i = 0 ; i < mCommandList.size() ; i++ ) {
         if ( head -> str == mCommandList.at( i ) ) {
           
@@ -1753,7 +1753,7 @@ class Evaluate {
       } // if()
       
       else {
-        // ¨S¦³³Q©w¸q¹Lªº SYMBOL 
+        // æ²’æœ‰è¢«å®šç¾©éçš„ SYMBOL 
         mError = true ;
         cout << "ERROR (unbound symbol) : " ;
         
@@ -1769,7 +1769,7 @@ class Evaluate {
       
     } // else if()
     
-    // ³æ¯Â¤@­Ó atom¡A¤£¥]§t symbol 
+    // å–®ç´”ä¸€å€‹ atomï¼Œä¸åŒ…å« symbol 
     else if ( head -> type != "" && head -> left == NULL && head -> right == NULL ) {
       return "OUTPUT" ;
       
@@ -1779,16 +1779,16 @@ class Evaluate {
     
   } // GetCommand()
   
-  // ¬ö¿ı³Q©w¸qªº symbol ¶i¤J mHeadList
-  // Àx¦s¶i mHeadList ªº head¡A left ³£¬O symbol¡A right -> left ¤~¬O symbol ªº¤º®e 
-  // ¦]¬°·íªì input ¶i¨Óªº®æ¦¡¬O ( define a (¤º®e) . nil ) 
-  // ¥i¥H¦b¬Û¦P symbol ¤¤­«½Æ©w¸q 
-  // ¨Ã Output ¤@­Óµ²ªG 
+  // ç´€éŒ„è¢«å®šç¾©çš„ symbol é€²å…¥ mHeadList
+  // å„²å­˜é€² mHeadList çš„ headï¼Œ left éƒ½æ˜¯ symbolï¼Œ right -> left æ‰æ˜¯ symbol çš„å…§å®¹ 
+  // å› ç‚ºç•¶åˆ input é€²ä¾†çš„æ ¼å¼æ˜¯ ( define a (å…§å®¹) . nil ) 
+  // å¯ä»¥åœ¨ç›¸åŒ symbol ä¸­é‡è¤‡å®šç¾© 
+  // ä¸¦ Output ä¸€å€‹çµæœ 
   NodePtr Define( NodePtr head ) {
     NodePtr now_head ;
-    NodePtr now ; // ­n©ñ¶i Àx¦s¦C ¤¤ªºÀY 
+    NodePtr now ; // è¦æ”¾é€² å„²å­˜åˆ— ä¸­çš„é ­ 
     NodePtr walk ;
-    int count = 0 ; // ­pºâargumentªº¼Æ¶q 
+    int count = 0 ; // è¨ˆç®—argumentçš„æ•¸é‡ 
     
     now_head = new Node ;
     
@@ -1889,7 +1889,7 @@ class Evaluate {
     
     now -> left = walk -> left ;
     
-    // ·Ç³Æ­n³Q©w¸qªºªF¦è¥²Äò¬OSYMBOL 
+    // æº–å‚™è¦è¢«å®šç¾©çš„æ±è¥¿å¿…çºŒæ˜¯SYMBOL 
     if ( now -> left -> type != "SYMBOL" || IsCommand( now -> left -> str ) ) {
       // ERROR
       mError = true ;
@@ -1926,7 +1926,7 @@ class Evaluate {
     now -> right = NULL ;
     now -> left = NULL ;
     
-    // ª½±µ©ñ¶i mHeadList
+    // ç›´æ¥æ”¾é€² mHeadList
     if ( mHeadList.size() > 0 ) {
       for ( int i = 0 ; i < mHeadList.size() ; i++ ) {
         if ( now_head -> left -> str == mHeadList.at( i ) -> left -> str ) {
@@ -1961,7 +1961,7 @@ class Evaluate {
     
   } // Define()
   
-  // §â¥Ø«emHeadListªº¾ğ¥ş³¡¿é¥X 
+  // æŠŠç›®å‰mHeadListçš„æ¨¹å…¨éƒ¨è¼¸å‡º 
   void ShowMHeadList() {
     for ( int i = 0 ; i < mHeadList.size() ; i++ ) {
       cout << "Number : " << i + 1 << endl ;
@@ -1974,7 +1974,7 @@ class Evaluate {
     
   } // ShowMHeadList()
   
-    // Åı¨C­Ó()¸Ì­±³£¦³dot 
+    // è®“æ¯å€‹()è£¡é¢éƒ½æœ‰dot 
   int TranslateParen_Dot( int locate ) {
     int nowLocate = locate ;
     bool dot = false ;
@@ -2019,7 +2019,7 @@ class Evaluate {
   } // TranslateParen_Dot()
   
   int TranslateParen_Dot_Paren( int locate ) {
-    int rightParenCount = 0 ; // ­pºâ¦h»s³y¥X¨Óªºright-paren 
+    int rightParenCount = 0 ; // è¨ˆç®—å¤šè£½é€ å‡ºä¾†çš„right-paren 
     int pair = 0 ;
     Token nToken ;
     
@@ -2036,7 +2036,7 @@ class Evaluate {
         
       } // if()
       
-      // ªí¥Üparenªºend 
+      // è¡¨ç¤ºparençš„end 
       else if ( mAllToken.at( i + 1 ).type == "DOT" ) {
         i = i + 1 ;
         
@@ -2089,15 +2089,15 @@ class Evaluate {
     
   } // TranslateParen_Dot_Paren()
   
-  // inputªºlocateªí¥Ü§A²{¦bªº¦ì¸m
-  // ­nreturn§A³Ì«á¦s¦bªº¦ì¸m 
-  // ­ì¥»¬O¬°¤F°µ paren ±MÄİªº show¡A¦ı«á¨Óµo²{¤£¬Oparen¤]¥i¥Hshow¥X¨Ó 
-  // space ¦b°O¿ı¥Ø«e­nªÅ´X®æ
-  // sameLine¦b°O¿ı«e¤@­Ó output token ¬O§_¬° "("¡A¨Ó¨M©w­n¤£­n output sapce 
+  // inputçš„locateè¡¨ç¤ºä½ ç¾åœ¨çš„ä½ç½®
+  // è¦returnä½ æœ€å¾Œå­˜åœ¨çš„ä½ç½® 
+  // åŸæœ¬æ˜¯ç‚ºäº†åš paren å°ˆå±¬çš„ showï¼Œä½†å¾Œä¾†ç™¼ç¾ä¸æ˜¯parenä¹Ÿå¯ä»¥showå‡ºä¾† 
+  // space åœ¨è¨˜éŒ„ç›®å‰è¦ç©ºå¹¾æ ¼
+  // sameLineåœ¨è¨˜éŒ„å‰ä¸€å€‹ output token æ˜¯å¦ç‚º "("ï¼Œä¾†æ±ºå®šè¦ä¸è¦ output sapce 
   int ShowAllToken( int locate, int space, bool &sameLine ) {
-    int skipRightParen = 0 ; // ¹J¨ì ".(" ­n°O¿ı¡A³o¥Nªí­n¤Öoutput¤@­Ó ')' 
+    int skipRightParen = 0 ; // é‡åˆ° ".(" è¦è¨˜éŒ„ï¼Œé€™ä»£è¡¨è¦å°‘outputä¸€å€‹ ')' 
     int rightCount = 0 ;
-    int input ; // µ¥©ó ( space + rightCount ) * 2
+    int input ; // ç­‰æ–¼ ( space + rightCount ) * 2
     
     // cout << "In Pretty" << endl ;
     
@@ -2194,7 +2194,7 @@ class Evaluate {
     
   } // ShowAllToken()
   
-  // ³B²z¤@¨Ç³Â·Ğªºtoken output¡A e.g. float, nil... 
+  // è™•ç†ä¸€äº›éº»ç…©çš„token outputï¼Œ e.g. float, nil... 
   void PrintTokenCorrectly( Token token ) {
     float float_out ;
     int int_out ;
@@ -2393,10 +2393,10 @@ class Evaluate {
   } // Cons()
   
   NodePtr List( NodePtr head ) {
-    NodePtr walk = NULL ; // ¨«¦bÀs°©¤W 
+    NodePtr walk = NULL ; // èµ°åœ¨é¾éª¨ä¸Š 
     NodePtr combine = new Node ; // combine = all
-    NodePtr combine_head = combine ; // combine ªºÀY 
-    NodePtr now = NULL ; // Às°©¤Wªº¨C­Ó¤º®e 
+    NodePtr combine_head = combine ; // combine çš„é ­ 
+    NodePtr now = NULL ; // é¾éª¨ä¸Šçš„æ¯å€‹å…§å®¹ 
     
     if ( head -> str == "list" && 
          ( head -> type == "SYMBOL" || head -> type == "SYMBOL-COMMAND" ) ) {
@@ -2415,7 +2415,7 @@ class Evaluate {
     combine -> left = NULL ;
     combine -> right = NULL ;
     
-    // ¥kÃäª½±µ¬O NIL 
+    // å³é‚Šç›´æ¥æ˜¯ NIL 
     if ( walk -> type == "NIL" ) {
       combine -> str = "nil" ;
       combine -> type = "NIL" ;
@@ -2465,14 +2465,14 @@ class Evaluate {
     
   } // List()
   
-  // §â right part of pair µ¹ output ¥X¨Ó 
-  // cdr «á­±¤@©w­n±µ¤@­Ó¾ğ ¡A´Nºâ¹J¨ì quote ¥L¤]¬O¤@­Ó«ü¥O 
-  // ¦]¦¹ cdr ¦b³B²z±o¤@ª½³£¬O¤@­Ó¨S¦³ quote ªº tree 
+  // æŠŠ right part of pair çµ¦ output å‡ºä¾† 
+  // cdr å¾Œé¢ä¸€å®šè¦æ¥ä¸€å€‹æ¨¹ ï¼Œå°±ç®—é‡åˆ° quote ä»–ä¹Ÿæ˜¯ä¸€å€‹æŒ‡ä»¤ 
+  // å› æ­¤ cdr åœ¨è™•ç†å¾—ä¸€ç›´éƒ½æ˜¯ä¸€å€‹æ²’æœ‰ quote çš„ tree 
   NodePtr Cdr( NodePtr head ) {
-    NodePtr walk = head -> right ; // ¨«Às°© 
+    NodePtr walk = head -> right ; // èµ°é¾éª¨ 
     NodePtr rightPart = NULL ;
     
-    NodePtr result = NULL ; // ¿é¥X error ­n output ªº¾ğ 
+    NodePtr result = NULL ; // è¼¸å‡º error è¦ output çš„æ¨¹ 
     int count = 0 ;
     
     result = new Node ;
@@ -2534,7 +2534,7 @@ class Evaluate {
     
     walk = head -> right ;
     
-    // ¬İ¦³¨S¦³ command 
+    // çœ‹æœ‰æ²’æœ‰ command 
     walk -> left = Eval( walk -> left, false ) ;
     
     if ( mError ) {
@@ -2542,7 +2542,7 @@ class Evaluate {
       
     } // if()
     
-    // ³Ì«á­±ªº "-> right" ¬O«ü¦V¸Ó´Ê¾ğªº¥kÃä  
+    // æœ€å¾Œé¢çš„ "-> right" æ˜¯æŒ‡å‘è©²æ£µæ¨¹çš„å³é‚Š  
     rightPart = walk -> left ;
       
     if ( rightPart -> str == "" ) {
@@ -2565,12 +2565,12 @@ class Evaluate {
     
   } // Cdr()
   
-  // §â left part of pair µ¹ output ¥X¨Ó 
-  // car «á­±¤@©w­n±µ¤@­Ó¾ğ 
+  // æŠŠ left part of pair çµ¦ output å‡ºä¾† 
+  // car å¾Œé¢ä¸€å®šè¦æ¥ä¸€å€‹æ¨¹ 
   NodePtr Car( NodePtr head ) {
-    NodePtr walk = head -> right ; // ¨«Às°© 
+    NodePtr walk = head -> right ; // èµ°é¾éª¨ 
     NodePtr leftPart = NULL ;
-    NodePtr result = NULL ; // ¿é¥X error ­n output ªº¾ğ 
+    NodePtr result = NULL ; // è¼¸å‡º error è¦ output çš„æ¨¹ 
     int count = 0 ;
     
     result = new Node ;
@@ -2635,7 +2635,7 @@ class Evaluate {
     
     walk = head -> right ;
     
-    // ¬İ¦³¨S¦³ command 
+    // çœ‹æœ‰æ²’æœ‰ command 
     walk -> left = Eval( walk -> left, false ) ;
     
     if ( mError ) {
@@ -2643,7 +2643,7 @@ class Evaluate {
       
     } // if()
     
-    // ³Ì«á­±ªº "-> left" ¬O«ü¦V¸Ó´Ê¾ğªº¥ªÃä 
+    // æœ€å¾Œé¢çš„ "-> left" æ˜¯æŒ‡å‘è©²æ£µæ¨¹çš„å·¦é‚Š 
     leftPart = walk -> left ;
       
     if ( leftPart -> str == "" ) {
@@ -2668,7 +2668,7 @@ class Evaluate {
   } // Car()
   
   NodePtr IsAtom( NodePtr head ) {
-    // Às°© 
+    // é¾éª¨ 
     NodePtr walk = head -> right ;
     NodePtr value ;
     NodePtr result = new Node ;
@@ -2747,13 +2747,13 @@ class Evaluate {
       
     } // if()
     
-    // atom? «á­±¤°»ò³£¨S¦³ 
+    // atom? å¾Œé¢ä»€éº¼éƒ½æ²’æœ‰ 
     if ( walk -> left == NULL ) {
       // ERROR 
       
     } // if()
     
-    // ¬O Atom 
+    // æ˜¯ Atom 
     else if ( walk -> left -> type == "INT" || walk -> left -> type == "SYMBOL-COMMAND" ||
               walk -> left -> type == "FLOAT" || walk -> left -> type == "STRING" ||
               walk -> left -> type == "NIL" || walk -> left -> type == "T" ) {
@@ -2790,7 +2790,7 @@ class Evaluate {
       
     } // else if()
     
-    // ¤£¬O Atom 
+    // ä¸æ˜¯ Atom 
     else {
       result -> str = "nil" ;
       result -> type = "NIL" ;
@@ -2802,7 +2802,7 @@ class Evaluate {
   } // IsAtom()
   
   NodePtr IsPair( NodePtr head ) {
-    // Às°© 
+    // é¾éª¨ 
     NodePtr walk = head -> right ;
     NodePtr value ;
     NodePtr result = new Node ;
@@ -2879,7 +2879,7 @@ class Evaluate {
       
     } // if()
     
-    // ¬O Atom ¡A¤£¬O Pair 
+    // æ˜¯ Atom ï¼Œä¸æ˜¯ Pair 
     if ( walk -> left -> type == "INT" || walk -> left -> type == "SYMBOL-COMMAND" ||
          walk -> left -> type == "FLOAT" || walk -> left -> type == "STRING" ||
          walk -> left -> type == "NIL" || walk -> left -> type == "T" ) {
@@ -2916,7 +2916,7 @@ class Evaluate {
       
     } // else if()
     
-    // ¤£¬O Atom ¡A¬O Pair 
+    // ä¸æ˜¯ Atom ï¼Œæ˜¯ Pair 
     else {
       result -> str = "#t" ;
       result -> type = "T" ;
@@ -2928,9 +2928,9 @@ class Evaluate {
   } // IsPair()
   
   NodePtr IsList( NodePtr head ) {
-    // Às°© 
+    // é¾éª¨ 
     NodePtr walk = head -> right ;
-    // "¤º®e" ªºÀY 
+    // "å…§å®¹" çš„é ­ 
     NodePtr value ;
     NodePtr result = new Node ;
     int count = 0 ;
@@ -3007,7 +3007,7 @@ class Evaluate {
       
     } // if()
     
-    // ¥h "¤º®e" ¤¤ÀË¬d 
+    // å» "å…§å®¹" ä¸­æª¢æŸ¥ 
     value = walk -> left ;
     
     while ( value != NULL ) {
@@ -3047,7 +3047,7 @@ class Evaluate {
   } // IsList()
   
   NodePtr IsNull( NodePtr head ) {
-    // Às°© 
+    // é¾éª¨ 
     NodePtr walk = head -> right ;
     NodePtr result = new Node ;
     
@@ -3125,7 +3125,7 @@ class Evaluate {
       
     } // if()
     
-    // Null? «á­±¤°»ò³£¨S¦³ 
+    // Null? å¾Œé¢ä»€éº¼éƒ½æ²’æœ‰ 
     if ( walk -> left == NULL ) {
       // ERROR 
       
@@ -3148,9 +3148,9 @@ class Evaluate {
   } // IsNull()
   
   NodePtr IsInteger( NodePtr head ) {
-    // Às°© 
+    // é¾éª¨ 
     NodePtr walk = head -> right ;
-    // "¤º®e" ªºÀY 
+    // "å…§å®¹" çš„é ­ 
     NodePtr value ;
     
     NodePtr result = new Node ;
@@ -3227,7 +3227,7 @@ class Evaluate {
       
     } // if()
     
-    // Integer? «á­±¤°»ò³£¨S¦³ 
+    // Integer? å¾Œé¢ä»€éº¼éƒ½æ²’æœ‰ 
     if ( walk -> left == NULL ) {
       // ERROR 
       
@@ -3256,9 +3256,9 @@ class Evaluate {
   } // IsInteger()
   
   NodePtr IsReal( NodePtr head ) {
-    // Às°© 
+    // é¾éª¨ 
     NodePtr walk = head -> right ;
-    // "¤º®e" ªºÀY 
+    // "å…§å®¹" çš„é ­ 
     NodePtr value ;
     NodePtr result = new Node ;
     
@@ -3345,7 +3345,7 @@ class Evaluate {
       
     } // if()
     
-    // Real? «á­±¤°»ò³£¨S¦³ 
+    // Real? å¾Œé¢ä»€éº¼éƒ½æ²’æœ‰ 
     if ( walk -> left == NULL ) {
       // ERROR 
       
@@ -3372,9 +3372,9 @@ class Evaluate {
   } // IsReal()
   
   NodePtr IsString( NodePtr head ) {
-    // Às°© 
+    // é¾éª¨ 
     NodePtr walk = head -> right ;
-    // "¤º®e" ªºÀY 
+    // "å…§å®¹" çš„é ­ 
     NodePtr value ;
     NodePtr result = new Node ;
     
@@ -3450,7 +3450,7 @@ class Evaluate {
       
     } // if()
     
-    // Real? «á­±¤°»ò³£¨S¦³ 
+    // Real? å¾Œé¢ä»€éº¼éƒ½æ²’æœ‰ 
     if ( walk -> left == NULL ) {
       // ERROR 
       
@@ -3477,9 +3477,9 @@ class Evaluate {
   } // IsString()
   
   NodePtr IsBoolean( NodePtr head ) {
-    // Às°© 
+    // é¾éª¨ 
     NodePtr walk = head -> right ;
-    // "¤º®e" ªºÀY 
+    // "å…§å®¹" çš„é ­ 
     NodePtr value ;
     
     NodePtr result = new Node ;
@@ -3556,7 +3556,7 @@ class Evaluate {
       
     } // if()
     
-    // Real? «á­±¤°»ò³£¨S¦³ 
+    // Real? å¾Œé¢ä»€éº¼éƒ½æ²’æœ‰ 
     if ( walk -> left == NULL ) {
       // ERROR 
       
@@ -3582,11 +3582,11 @@ class Evaluate {
     
   } // IsBoolean()
   
-  // ­n¦³ quote 
+  // è¦æœ‰ quote 
   NodePtr IsSymbol( NodePtr head ) {
-    // Às°© 
+    // é¾éª¨ 
     NodePtr walk = head -> right ;
-    // "¤º®e" ªºÀY 
+    // "å…§å®¹" çš„é ­ 
     NodePtr value ;
     NodePtr result = new Node ;
     
@@ -3664,7 +3664,7 @@ class Evaluate {
       
     } // if()
     
-    // Symbol? «á­±¤°»ò³£¨S¦³ 
+    // Symbol? å¾Œé¢ä»€éº¼éƒ½æ²’æœ‰ 
     if ( walk -> left == NULL ) {
       // ERROR 
       
@@ -3729,20 +3729,20 @@ class Evaluate {
     } // if()
     
     
-    // Às°© 
+    // é¾éª¨ 
     NodePtr walk = head -> right ;
     stringstream ss ;
     
-    NodePtr now = walk -> left ; // Às°©¤Wªº¨C­Ó¤º®e 
+    NodePtr now = walk -> left ; // é¾éª¨ä¸Šçš„æ¯å€‹å…§å®¹ 
     
     NodePtr sum_node = new Node ;
     
-    double sum = 0 ; // Á`©M 
-    double value = 0 ; // ­n³Q°µ­pºâªº¼Æ¦r
+    double sum = 0 ; // ç¸½å’Œ 
+    double value = 0 ; // è¦è¢«åšè¨ˆç®—çš„æ•¸å­—
     
-    int tool = 0 ; // °µ¼Æ¦rÂà´«ªº¤u¨ã 
+    int tool = 0 ; // åšæ•¸å­—è½‰æ›çš„å·¥å…· 
     
-    bool flt = false ; // ¬İ¦³¨S¦³´¿¸g¥X²{¹L float 
+    bool flt = false ; // çœ‹æœ‰æ²’æœ‰æ›¾ç¶“å‡ºç¾é float 
     
     // cout << "In the functin" << endl ;
     
@@ -3789,8 +3789,8 @@ class Evaluate {
     sum_node -> type = "INT" ;
     sum_node -> str = "0" ;
     
-    // §â²Ä¤@­Ó­Èµ¹ sum 
-    // now ¬O¤@­Ó symbol 
+    // æŠŠç¬¬ä¸€å€‹å€¼çµ¦ sum 
+    // now æ˜¯ä¸€å€‹ symbol 
     
     walk = head -> right ;
     
@@ -3803,7 +3803,7 @@ class Evaluate {
     
     now = walk -> left ;
     
-    // ´N¥u¬O¼Æ¦r 
+    // å°±åªæ˜¯æ•¸å­— 
     if ( now -> type == "FLOAT" || now -> type == "INT" ) {
       // cout << now -> str << endl ;
       
@@ -3821,7 +3821,7 @@ class Evaluate {
       
     } // if
     
-    // «D¼Æ¦r 
+    // éæ•¸å­— 
     else {
       // ERROR 
       mError = true ;
@@ -3866,7 +3866,7 @@ class Evaluate {
       
       now = walk -> left ;
       
-      // ´N¥u¬O¼Æ¦r 
+      // å°±åªæ˜¯æ•¸å­— 
       if ( now -> type == "FLOAT" || now -> type == "INT" ) {
         // cout << now -> str << endl ;
         stringstream ss2 ;
@@ -3883,7 +3883,7 @@ class Evaluate {
         
       } // if
       
-      // «D¼Æ¦r 
+      // éæ•¸å­— 
       else {
         // ERROR 
         mError = true ;
@@ -3988,7 +3988,7 @@ class Evaluate {
   NodePtr Not( NodePtr head ) {
     NodePtr walk = head -> right ;
     
-    NodePtr now = NULL ; // Às°©¤Wªº¨C­Ó¤º®e 
+    NodePtr now = NULL ; // é¾éª¨ä¸Šçš„æ¯å€‹å…§å®¹ 
     
     NodePtr result = new Node ;
     
@@ -4064,7 +4064,7 @@ class Evaluate {
       
     } // if()
     
-    now = walk -> left ; // Às°©¤Wªº¨C­Ó¤º®e 
+    now = walk -> left ; // é¾éª¨ä¸Šçš„æ¯å€‹å…§å®¹ 
     
     result -> str = "" ;
     result -> type = "" ;
@@ -4090,7 +4090,7 @@ class Evaluate {
   NodePtr And( NodePtr head ) {
     NodePtr walk = head -> right ;
     
-    NodePtr value = NULL ; // ¨C¤@¸`Às°©ªº¤º®e 
+    NodePtr value = NULL ; // æ¯ä¸€ç¯€é¾éª¨çš„å…§å®¹ 
     
     NodePtr result = NULL ;
     
@@ -4183,7 +4183,7 @@ class Evaluate {
   NodePtr Or( NodePtr head ) {
     NodePtr walk = head -> right ;
     
-    NodePtr value = NULL  ; // ¨C¤@¸`Às°©ªº¤º®e 
+    NodePtr value = NULL  ; // æ¯ä¸€ç¯€é¾éª¨çš„å…§å®¹ 
     
     NodePtr result = NULL ;
     
@@ -4273,7 +4273,7 @@ class Evaluate {
     
   } // Or()
   
-  // ¼Æ¦r¤ñ¤j¤p 
+  // æ•¸å­—æ¯”å¤§å° 
   NodePtr IntBigSmall( NodePtr head ) {
     string command = "" ;
     stringstream ss ;
@@ -4287,8 +4287,8 @@ class Evaluate {
     
     bool finished = false ;
     
-    double num = 0 ; // ­n®³¨Ó¤ñ¤j¤p¼Æ¦r 
-    double contest = 0 ; // numªº¹ï¤â 
+    double num = 0 ; // è¦æ‹¿ä¾†æ¯”å¤§å°æ•¸å­— 
+    double contest = 0 ; // numçš„å°æ‰‹ 
     
     
     int count = 0 ;
@@ -4371,7 +4371,7 @@ class Evaluate {
     result -> left = NULL ;
     command = head -> left -> str ;
     
-    // ²Ä¤@­Ó¼Æ¦r 
+    // ç¬¬ä¸€å€‹æ•¸å­— 
     walk -> left = Eval( walk -> left, false ) ; 
     
     if ( mError ) {
@@ -4381,7 +4381,7 @@ class Evaluate {
     
     now = walk -> left ;
     
-    // ¬O¼Æ¦r 
+    // æ˜¯æ•¸å­— 
     if ( now -> type == "INT" || now -> type == "FLOAT" ) {
       ss << now -> str ;
       ss >> num ;
@@ -4556,7 +4556,7 @@ class Evaluate {
     
   } // IntBigSmall()
   
-  // string ¤ñ¤j¤p 
+  // string æ¯”å¤§å° 
   NodePtr StringBigSmall( NodePtr head ) {
     string command = "" ;
     
@@ -4571,8 +4571,8 @@ class Evaluate {
     
     bool finished = false ;
     
-    string challenge = "" ; // ­n®³¨Ó¤ñ¤j¤p string
-    string contest = "" ; // challengeªº¹ï¤â 
+    string challenge = "" ; // è¦æ‹¿ä¾†æ¯”å¤§å° string
+    string contest = "" ; // challengeçš„å°æ‰‹ 
     
     
     int count = 0 ;
@@ -4651,7 +4651,7 @@ class Evaluate {
     now = walk -> left ;
     command = head -> left -> str ;
     
-    // ²Ä¤@­Ó string 
+    // ç¬¬ä¸€å€‹ string 
     walk -> left = Eval( walk -> left, false ) ; 
     
     if ( mError ) {
@@ -4998,7 +4998,7 @@ class Evaluate {
     result -> str = "" ;
     result -> type = "" ;
     
-    // ²Ä¤@­Ó¤ñ¸ûªºªF¦è 
+    // ç¬¬ä¸€å€‹æ¯”è¼ƒçš„æ±è¥¿ 
     if ( walk -> type == "" ) {
       walk -> left = Eval( walk -> left, false ) ;
       
@@ -5018,7 +5018,7 @@ class Evaluate {
     
     walk = walk -> right ;
     
-    // ²Ä¤G­Ó¤ñ¸ûªºªF¦è 
+    // ç¬¬äºŒå€‹æ¯”è¼ƒçš„æ±è¥¿ 
     if ( walk -> type == "" ) {
       walk -> left = Eval( walk -> left, false ) ;
       
@@ -5036,8 +5036,8 @@ class Evaluate {
       
     } // else
     
-    // ¦]¬°¥¦¥u¯à¦³¨â­Ó input
-    // ©Ò¥H¥¦¥kÃä¥u¯à¬O NIL 
+    // å› ç‚ºå®ƒåªèƒ½æœ‰å…©å€‹ input
+    // æ‰€ä»¥å®ƒå³é‚Šåªèƒ½æ˜¯ NIL 
     if ( walk -> right -> type == "NIL" ) {
       if ( first -> type != "STRING" && second -> type != "STRING" &&
            first -> type != "" && second -> type != "" ) {
@@ -5266,7 +5266,7 @@ class Evaluate {
     NodePtr no = NULL ;
     NodePtr result = NULL ;
     
-    int count = 0 ; // ­pºâ¦³´X­Óargument
+    int count = 0 ; // è¨ˆç®—æœ‰å¹¾å€‹argument
     
     if ( head -> type == "SYMBOL" || head -> type == "SYMBOL-COMMAND" ) {
       head -> type = "SYMBOL-COMMAND" ;
@@ -5275,7 +5275,7 @@ class Evaluate {
       
     } // if()
     
-    // ¥u³æ¯Â¬İ¦³¨S¦³²Å¦Xargument¼Æ¦r 
+    // åªå–®ç´”çœ‹æœ‰æ²’æœ‰ç¬¦åˆargumentæ•¸å­— 
     while ( walk -> type != "NIL" ) {
       
       if ( walk -> right == NULL ) {
@@ -5349,7 +5349,7 @@ class Evaluate {
     
     walk = head -> right ;
     
-    // ­pºâcondition 
+    // è¨ˆç®—condition 
     condition = Eval( condition, false ) ;
     
     if ( mError ) {
@@ -5357,7 +5357,7 @@ class Evaluate {
       
     } // if()
     
-    // ³Ì«á¦A¬İ¦³¨S¦³ ¨ä¥L¿ù»~ 
+    // æœ€å¾Œå†çœ‹æœ‰æ²’æœ‰ å…¶ä»–éŒ¯èª¤ 
     if ( condition -> type == "NIL" ) {
       if ( no != NULL ) {
         no = Eval( no, false ) ;
@@ -5398,7 +5398,7 @@ class Evaluate {
     
   } // If()
   
-  // ¨C­Ó¤º®e³£¬O ±ø¥ó + °µªº¨Æ 
+  // æ¯å€‹å…§å®¹éƒ½æ˜¯ æ¢ä»¶ + åšçš„äº‹ 
   NodePtr Cond( NodePtr head ) {
     NodePtr original = CopyTree( head ) ;
     NodePtr walk = head -> right ;
@@ -5412,7 +5412,7 @@ class Evaluate {
       
     } // if()
     
-    // (cond)ªºª¬ªp 
+    // (cond)çš„ç‹€æ³ 
     if ( head -> right -> type == "NIL" ) {
       // ERROR
       mError = true ;
@@ -5441,7 +5441,7 @@ class Evaluate {
         
       } // if()
       
-      // ®Ú¥»¨S¦³±ø¥ó¥i¨¥ 
+      // æ ¹æœ¬æ²’æœ‰æ¢ä»¶å¯è¨€ 
       else if ( sidewalk -> type != "" ) {
         // ERROR
         mError = true ;
@@ -5454,7 +5454,7 @@ class Evaluate {
         
       } // else if()
       
-      // ¦³±ø¥ó¡A¦ı¬O¸Ì­±¿é¥Xªº¤º®e¤p©ó1­Ó 
+      // æœ‰æ¢ä»¶ï¼Œä½†æ˜¯è£¡é¢è¼¸å‡ºçš„å…§å®¹å°æ–¼1å€‹ 
       if ( sidewalk -> right -> type != "" ) {
          // ERROR
         mError = true ;
@@ -5473,12 +5473,12 @@ class Evaluate {
     
     walk = head -> right ;
     
-    // ±ø¥ó¸Ì­±ªº¹Bºâ ¡A¤]¥]§t no return value ERROR 
+    // æ¢ä»¶è£¡é¢çš„é‹ç®— ï¼Œä¹ŸåŒ…å« no return value ERROR 
     while ( walk -> type != "NIL" ) {
       NodePtr sidewalk = walk -> left ;
       NodePtr result_tool = NULL ;
       
-      // ­pºâ¨C­Ó sidewalk ªº±ø¥ó 
+      // è¨ˆç®—æ¯å€‹ sidewalk çš„æ¢ä»¶ 
       if ( walk -> right -> type != "NIL" ||  sidewalk -> left -> str != "else" ) {
         sidewalk -> left = Eval( sidewalk -> left, false ) ;
         
@@ -5489,11 +5489,11 @@ class Evaluate {
           
       } // if()
       
-      // ±ø¥ó¦¨¥ß
+      // æ¢ä»¶æˆç«‹
       if ( sidewalk -> left -> type != "NIL" ) {
         
         if ( sidewalk -> right -> type == "" ) {
-          // ¨C­Ó¤º®e³£­n­pºâ¹L¡A¦³ERROR³£­n¦^³ø 
+          // æ¯å€‹å…§å®¹éƒ½è¦è¨ˆç®—éï¼Œæœ‰ERRORéƒ½è¦å›å ± 
           while ( sidewalk -> right -> type != "NIL" ) {
             sidewalk = sidewalk -> right ;
             
@@ -5523,7 +5523,7 @@ class Evaluate {
         
       } // if()
       
-      // ¨ì¤F³Ì«á¤@­Ó 
+      // åˆ°äº†æœ€å¾Œä¸€å€‹ 
       else if ( walk -> right -> type == "NIL" ) {
         if ( sidewalk -> left -> str == "else" ) {
           
@@ -5619,14 +5619,14 @@ public:
     
   } // ChangeMError()
   
-  // ³£¥ı°²³]¨C­Ó Tree ³£¨S¦³ Error ªºµo¥Í 
-  // return NULL ²{¦b¥Nªí¤£¥Î¿é¥XªF¦è¡A¦Ó¤£¬Oerror( 6/13 ) 
-  // firstLevel: ªí¥Ü²{¦b¬O§_¦ì©ó³o´Ê¾ğªº²Ä¤@¼h 
+  // éƒ½å…ˆå‡è¨­æ¯å€‹ Tree éƒ½æ²’æœ‰ Error çš„ç™¼ç”Ÿ 
+  // return NULL ç¾åœ¨ä»£è¡¨ä¸ç”¨è¼¸å‡ºæ±è¥¿ï¼Œè€Œä¸æ˜¯error( 6/13 ) 
+  // firstLevel: è¡¨ç¤ºç¾åœ¨æ˜¯å¦ä½æ–¼é€™æ£µæ¨¹çš„ç¬¬ä¸€å±¤ 
   NodePtr Eval( NodePtr head, bool firstLevel ) {
     NodePtr walk = NULL ;
     NodePtr tool = head ;
     
-    // ÀË¬d non-list 
+    // æª¢æŸ¥ non-list 
     if ( tool -> right != NULL && tool -> left != NULL ) {
       while ( tool -> right != NULL ) {
         tool = tool -> right ;
@@ -5688,7 +5688,7 @@ public:
       
     } // else if()
     
-    // quote ¦^¶Çªº¬O ¤º®e ¡A¦Ó¤£¬O¾ã´Ê¾ğ 
+    // quote å›å‚³çš„æ˜¯ å…§å®¹ ï¼Œè€Œä¸æ˜¯æ•´æ£µæ¨¹ 
     else if ( command == "quote" || command == "'" ) {
       
       NodePtr test = NULL ;
@@ -5707,7 +5707,7 @@ public:
         
       } // if()
       
-      // ÀË¬dERROR
+      // æª¢æŸ¥ERROR
       while ( test != NULL ) {
         if ( test -> right == NULL && test -> type != "NIL" ) {
           mError = true ;
@@ -5724,7 +5724,7 @@ public:
         
       } // while()
       
-      // ÀË¬dERROR 
+      // æª¢æŸ¥ERROR 
       if ( head -> right -> type == "NIL" ) {
         // ERROR
         mError = true ;
@@ -5934,7 +5934,7 @@ public:
       
     } // else if()
     
-    // ¥u¦³¤@­Ó¸`ÂI¡A«D SYMBOL 
+    // åªæœ‰ä¸€å€‹ç¯€é»ï¼Œé SYMBOL 
     // e.g. int, float, string
     else if ( command == "OUTPUT" ) {
       
@@ -6015,7 +6015,7 @@ public:
       
     } // else if()
     
-    // ¤°»ò³£¤£¬O¡A¤]ªí¥Ü¨S¦³command 
+    // ä»€éº¼éƒ½ä¸æ˜¯ï¼Œä¹Ÿè¡¨ç¤ºæ²’æœ‰command 
     else {
       
       mError = true ;
@@ -6040,8 +6040,8 @@ public:
   } // Eval()
   
   
-  // §â¸Ó©w¸q¹Lªº symbol output 
-  // ¦pªG symbol ªº "¤º®e" ¥»¨­´N¬O¤@­Ó«ü¥O¡A¨º´N°õ¦æ¥L
+  // æŠŠè©²å®šç¾©éçš„ symbol output 
+  // å¦‚æœ symbol çš„ "å…§å®¹" æœ¬èº«å°±æ˜¯ä¸€å€‹æŒ‡ä»¤ï¼Œé‚£å°±åŸ·è¡Œä»–
   void ShowSymbol( string symbol ) {
     NodePtr head ;
     
@@ -6057,7 +6057,7 @@ public:
   } // ShowSymbol()
   
   
-  // return symbol ªº¤º®e 
+  // return symbol çš„å…§å®¹ 
   NodePtr FindSymbol( string symbol ) {
     for ( int i = 0 ; i < mHeadList.size() ; i++ ) {
       if ( mHeadList.at( i ) -> left -> str == symbol ) {
@@ -6071,7 +6071,7 @@ public:
     
   } // FindSymbol()
   
-  // ¬İ¸Ó symbol ¬O§_¦³³Q©w¸q¹L 
+  // çœ‹è©² symbol æ˜¯å¦æœ‰è¢«å®šç¾©é 
   bool IsSymbolDefined( string symbol ) {
     for ( int i = 0 ; i < mHeadList.size() ; i++ ) {
       if ( mHeadList.at( i ) -> left -> str == symbol ) {
@@ -6085,7 +6085,7 @@ public:
     
   } // IsSymbolDefined()
   
-  // ¦^¶Ç¸Ósymbolªº¤º®e 
+  // å›å‚³è©²symbolçš„å…§å®¹ 
   NodePtr GetSymbolTree( string symbol ) {
     for ( int i = 0 ; i < mHeadList.size() ; i++ ) {
       if ( mHeadList.at( i ) -> left -> str == symbol ) {
@@ -6099,7 +6099,7 @@ public:
     
   } // GetSymbolTree()
   
-  // »s§@¤@­Ó command list 
+  // è£½ä½œä¸€å€‹ command list 
   void MakeCommand() {
     mCommandList.push_back( "cons" ) ;
     mCommandList.push_back( "list" ) ;
@@ -6144,12 +6144,12 @@ public:
     
   } // MakeCommand()
   
-  // input ¶i¨Ó¬Oª½±µ¥H¨º­Ó head ¶}©l output
-  // ·|¦Ò¼{ quote ªº±¡ªp¡A¦ı¶i¨Óªº head ¤¤ªº symbol ©M ¤º®e ­n¦Û¤v½Õ¾ã 
+  // input é€²ä¾†æ˜¯ç›´æ¥ä»¥é‚£å€‹ head é–‹å§‹ output
+  // æœƒè€ƒæ…® quote çš„æƒ…æ³ï¼Œä½†é€²ä¾†çš„ head ä¸­çš„ symbol å’Œ å…§å®¹ è¦è‡ªå·±èª¿æ•´ 
   void ShowTree( NodePtr head ) {
     Token nToken ;
     
-    // µ¹ShowAllToken°µ¨Ï¥Îªº 
+    // çµ¦ShowAllTokenåšä½¿ç”¨çš„ 
     bool sameLine = false ;
     
     
@@ -6159,14 +6159,14 @@ public:
     } // if()
     
     
-    // ³oªí¥Ü¬Æ»ò³£¤£¥Î¿é¥X
-    // ³q±`¦b³o¸Ì«İªí¥Ü define ©Î¬O environment-clean ¡A¥L­Ì·|¦Û¤v¿é¥Xµ²ªG 
+    // é€™è¡¨ç¤ºç”šéº¼éƒ½ä¸ç”¨è¼¸å‡º
+    // é€šå¸¸åœ¨é€™è£¡å¾…è¡¨ç¤º define æˆ–æ˜¯ environment-clean ï¼Œä»–å€‘æœƒè‡ªå·±è¼¸å‡ºçµæœ 
     if ( head == NULL ) {
       
       
     } // if()
     
-    // ¦pªG¥u¦³¤@­ÓªF¦èªº¸Ü¡Aª½±µ output §Y¥i 
+    // å¦‚æœåªæœ‰ä¸€å€‹æ±è¥¿çš„è©±ï¼Œç›´æ¥ output å³å¯ 
     else if ( head -> str != "" ) {
       nToken.str = head -> str ;
       nToken.type = head -> type ;
@@ -6178,8 +6178,8 @@ public:
     } // if()
     
     else {
-      // §Úªº TranslateTree_mAllToken ·| skip ±¼²Ä¤@­Ó "("
-      // ©Ò¥H³o¸Ì­n¸É¤W 
+      // æˆ‘çš„ TranslateTree_mAllToken æœƒ skip æ‰ç¬¬ä¸€å€‹ "("
+      // æ‰€ä»¥é€™è£¡è¦è£œä¸Š 
       
       nToken.str = "(" ;
       nToken.type = "LEFT-PAREN" ;
@@ -6188,7 +6188,7 @@ public:
       
       TranslateTree_mAllToken( head, false ) ;
       
-      // À³¹ï '()ªºª¬ªp 
+      // æ‡‰å° '()çš„ç‹€æ³ 
       if ( mAllToken.size() == 3 && mAllToken.at( 1 ).type == "NIL" ) {
         mAllToken.erase( mAllToken.begin() ) ;
         
@@ -6219,8 +6219,8 @@ int main() {
   Scanner scanner ;
   Evaluate evaluate ;
   int testNum ;
-  string str = "" ; // ±µ¦¬¨Ó¦Û scanner ³æ¿W symbol ªº str¡A¨Ã¦^¶Çµ¹ evaluate 
-  NodePtr result ; // Eval ¥X¨Óªºµ²ªG 
+  string str = "" ; // æ¥æ”¶ä¾†è‡ª scanner å–®ç¨ symbol çš„ strï¼Œä¸¦å›å‚³çµ¦ evaluate 
+  NodePtr result ; // Eval å‡ºä¾†çš„çµæœ 
   
   evaluate.MakeCommand() ;
   
